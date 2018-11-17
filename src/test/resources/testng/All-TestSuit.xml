@@ -1,0 +1,14 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<!--自定义内容1：套件名称-->
+<suite name="接口测试集合" verbose="1" preserve-order="true">
+  <suite-files>
+    <!--自定义内容2：要汇总的业务模块配置文件-->
+<!--    <suite-file path="api/User-TestSuite.xml"/>
+    <suite-file path="api/Order-TestSuite.xml"/>-->
+
+    <!--界面自动化-->
+    <suite-file path="ui/baidu/baidu-TestSuite.xml"/>
+    <suite-file path="ui/jd/jd-TestSuite.xml"/>
+    <suite-file path="ui/taobao/taobao-TestSuite.xml"/>
+  </suite-files>
+</suite>

@@ -1,0 +1,16 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<!--自定义内容1：套件名称-->
+<suite name="果芽软件-UI测试-淘宝" verbose="1" preserve-order="true">
+  <!--自定义内容2：测试模块名称-->
+  <test name="一体化测试流程搭建" preserve-order="true">
+    <classes>
+      <!--自定义内容3：要执行的类-->
+      <class name="com.guoyasoft.gyautotest.ui.testCase.jd.JDTest">
+        <methods>
+          <!--自定义内容4：要执行/排除的方法，以及执行顺序（从上到下）-->
+          <include name="accLogin"/>
+        </methods>
+      </class>
+    </classes>
+  </test>
+</suite>
