@@ -1,0 +1,14 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="guoya">
+	<test name="test0" preserve-order="true" enabled="true">
+		<classes>
+			<class name="com.guoyasoft.temp.TestNG">
+				<parameter name="name" value=""></parameter>
+				<parameter name="class" value="果芽软件"></parameter>
+				<methods>
+					<include name="hello" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+</suite>

@@ -1,0 +1,12 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="suit1">
+	<test name="test1" preserve-order="true">
+		<classes>
+			<class name="com.guoyasoft.topic.selenium.SeleniumTopic">
+				<methods>
+					<include name="driverOpenAndClose"></include>
+				</methods>
+			</class>
+		</classes>
+	</test>
+</suite>

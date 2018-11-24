@@ -23,6 +23,7 @@ public class LoginPage extends BaseUI {
     sendKeys(loginNameInput, userName);
     sendKeys(passwordInput, password);
     click(loginBtn);
+
   }
 
 }

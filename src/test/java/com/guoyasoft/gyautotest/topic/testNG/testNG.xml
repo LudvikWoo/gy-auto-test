@@ -1,0 +1,15 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="suit1">
+	<test name="test1" preserve-order="true">
+		<classes>
+			<class name="com.guoyasoft.test.TestNG">
+				<methods>
+					<include name="m4"></include>
+				</methods>
+			</class>
+			
+			<class name="com.guoyasoft.test.TestNG2">
+			</class>
+		</classes>
+	</test>
+</suite>

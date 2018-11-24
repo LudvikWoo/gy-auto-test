@@ -5,12 +5,14 @@ import java.io.IOException;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
 import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.Cookie;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -43,6 +45,8 @@ public class BaseUI {
 				driver = new ChromeDriver(options);
 				driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
 				sleep(1);
+
+
 	}
 
 	@Test
@@ -205,5 +209,13 @@ public class BaseUI {
 				break;// 如果找到当前窗口就停止查找
 			}
 		}
+	}
+
+	@Test
+	public void loginByCookie(String cookieName,String cookieValue){
+		Cookie cookie= driver.manage().getCookieNamed(cookieName);
+		driver.manage().deleteCookie(cookie);
+		Cookie session=new Cookie(cookieName, cookieValue);
+		driver.manage().addCookie(session);
 	}
 }

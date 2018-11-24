@@ -74,6 +74,20 @@
       <version>3.1.11</version>
     </dependency>
 
+    <!-- pinyin4j 汉字转拼音-->
+    <dependency>
+      <groupId>com.belerweb</groupId>
+      <artifactId>pinyin4j</artifactId>
+      <version>2.5.0</version>
+    </dependency>
+
+    <!-- 读取csv文件 -->
+    <dependency>
+      <groupId>net.sourceforge.javacsv</groupId>
+      <artifactId>javacsv</artifactId>
+      <version>2.0</version>
+    </dependency>
+
   </dependencies>
 
   <build>

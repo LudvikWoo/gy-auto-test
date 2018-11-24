@@ -5,12 +5,14 @@ import com.guoyasoft.gyautotest.ui.pages.baidu.BaiduDetail;
 import com.guoyasoft.gyautotest.ui.pages.baidu.BaiduHome;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.support.PageFactory;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 public class BaiduHomeTest extends BaseUI {
 
 	@Test
-	public void search() {
+	@Parameters({"sessionName","sessionValue"})
+	public void search(String sessionName,String sessionValue) {
 			driver.get("https://www.baidu.com");
 			snapshot((TakesScreenshot)driver, "baiduHome.jpg");
 			BaiduHome baidu = PageFactory.initElements(driver, BaiduHome.class);
@@ -18,7 +20,7 @@ public class BaiduHomeTest extends BaseUI {
 			snapshot((TakesScreenshot)driver, "baidu_search.jpg");
 			BaiduDetail detail = PageFactory.initElements(driver, BaiduDetail.class);
 			detail.showBaiduBaiKe();
-			switchToTitleWindow("_百度百科");
+		switchToTitleWindow("_百度百科");
 			snapshot((TakesScreenshot)driver, "baidu_detail.jpg");
 
 	}

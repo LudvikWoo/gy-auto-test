@@ -1,0 +1,23 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="suit1">
+	<test name="test0" preserve-order="true" enabled="true">
+		<classes>
+			<class name="com.guoyasoft.topic.string.TestString">
+				<methods>
+					<include name="isBlank"></include>
+					<include name="length" />
+					<include name="addStr"></include>
+					<include name="equals"></include>
+					<include name="contains"></include>
+					<include name="indexOf"></include>
+					<include name="subString"></include>
+					<include name="strToDate"></include>
+					<include name="intToStr"></include>
+					<include name="strToNumber"></include>
+					<include name="strSplit"></include>
+					<include name="trim"></include>
+				</methods>
+			</class>
+		</classes>
+	</test>
+</suite>

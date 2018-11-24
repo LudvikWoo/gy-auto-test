@@ -6,6 +6,8 @@
     <classes>
       <!--自定义内容3：要执行的类-->
       <class name="com.guoyasoft.gyautotest.ui.testCase.baidu.BaiduHomeTest">
+        <parameter name="sessionName" value="JSESSIONID"></parameter>
+        <parameter name="sessionValue" value="C7C3CBE1581D479FA6A89D713B127C4E"></parameter>
         <methods>
           <!--自定义内容4：要执行/排除的方法，以及执行顺序（从上到下）-->
           <include name="search"/>

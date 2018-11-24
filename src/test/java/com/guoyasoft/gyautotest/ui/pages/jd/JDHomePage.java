@@ -21,7 +21,6 @@ public class JDHomePage extends BaseUI {
   @Test
   public void search(String searcContent){
     sendKeys(searchInput, searcContent);
-    sleep(1000);
     click(searchBtn);
   }
 
