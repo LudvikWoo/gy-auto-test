@@ -24,11 +24,11 @@ public class JdbcTools {
   // 第1步：选择驱动，有mysql的，有orace，类似不同版本的浏览器
   private static String driver = "com.mysql.jdbc.Driver";
   // 第2步：提供链接地址，哪台主机，哪个应用port，哪个实例（类似tomcat的应用名）
-  private static String url = "jdbc:mysql://47.98.226.232:3308/guoya_test?useUnicode=true&characterEncoding=utf8";
+  private static String url = "jdbc:mysql://pro.guoyasoft.com:3306/guoya_official_dev?useUnicode=true&characterEncoding=utf8";
   // 第3步：登录，用户名、密码
   private static String username = "root";
   // 第4步：建立链接，固定写法
-  private static String password = "123456";
+  private static String password = "pro_root";
 
   public static Connection conn;
   public static PreparedStatement ps;
@@ -111,7 +111,7 @@ public class JdbcTools {
         }
         records.add(valueMap);
       }
-      System.out.println(records.size());
+      System.out.println("记录条数："+records.size());
       return records;
     } catch (SQLException e) {
       e.printStackTrace();

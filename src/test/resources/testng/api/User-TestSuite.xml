@@ -11,6 +11,11 @@
           <include name="loginTest"/>
         </methods>
       </class>
+      <class name="com.guoyasoft.gyautotest.api.testCase.user.LoginTest">
+        <methods>
+          <include name="login"></include>
+        </methods>
+      </class>
     </classes>
   </test>
 </suite>

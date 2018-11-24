@@ -1,9 +1,11 @@
 package com.guoyasoft.gyautotest.ui.common;
 
+import io.qameta.allure.Allure;
 import java.io.File;
 import java.io.IOException;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
+import java.util.function.Supplier;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.Cookie;
 import org.openqa.selenium.OutputType;
@@ -217,5 +219,14 @@ public class BaseUI {
 		driver.manage().deleteCookie(cookie);
 		Cookie session=new Cookie(cookieName, cookieValue);
 		driver.manage().addCookie(session);
+	}
+
+	public void addScreenshot2Allure(String stepName){
+		Allure.addByteAttachmentAsync(stepName, "image/jpeg", new Supplier<byte[]>() {
+			@Override
+			public byte[] get() {
+				return ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
+			}
+		});
 	}
 }
