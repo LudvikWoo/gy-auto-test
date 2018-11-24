@@ -1,12 +1,12 @@
 package com.guoyasoft.gyautotest.topic.asserts;
 
+import com.guoyasoft.gyautotest.ui.common.BaseUI;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
-import com.guoyasoft.autoUI.common.BaseUI;
 
 public class TestAssert extends BaseUI {
 	/*
