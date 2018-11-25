@@ -1,11 +1,10 @@
-package com.guoyasoft.gyautotest.api.testCase.user;
+package com.guoyasoft.gyautotest.api.service.user;
 
 import com.alibaba.fastjson.JSON;
 import com.guoyasoft.gyautotest.api.bean.user.login.LoginReq;
 import com.guoyasoft.gyautotest.tools.HttpTools;
-import com.guoyasoft.gyautotest.topic.interfaces.HttpClient;
 import io.qameta.allure.Allure;
-import io.qameta.allure.Step;
+import java.util.ArrayList;
 import org.testng.annotations.Test;
 
 public class LoginTest {

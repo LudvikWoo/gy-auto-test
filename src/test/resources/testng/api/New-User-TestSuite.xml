@@ -1,0 +1,49 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<!--自定义内容1：套件名称-->
+<suite name="果芽软件-接口测试-用户模块" verbose="1" preserve-order="true">
+  <!--自定义内容2：测试模块名称-->
+  <test name="注册-登录-账户查询" preserve-order="true" enabled="true">
+    <classes>
+      <!--自定义内容3：要执行的类-->
+      <class name="com.guoyasoft.gyautotest.api.service.user.UserApi">
+        <methods>
+          <!--自定义内容4：要执行/排除的方法，以及执行顺序（从上到下）-->
+          <include name="signUp"/>
+          <include name="login"/>
+        </methods>
+      </class>
+      <class name="com.guoyasoft.gyautotest.api.testCase.account.AccountTest">
+        <methods>
+          <!--自定义内容4：要执行/排除的方法，以及执行顺序（从上到下）-->
+          <include name="getAccInfo"/>
+        </methods>
+      </class>
+    </classes>
+  </test>
+
+  <test name="冻结-解锁" preserve-order="true"  enabled="false">
+    <classes>
+      <!--自定义内容3：要执行的类-->
+      <class name="com.guoyasoft.gyautotest.api.service.user.UserApi">
+        <methods>
+          <!--自定义内容4：要执行/排除的方法，以及执行顺序（从上到下）-->
+          <include name="lock"/>
+          <include name="unLock"/>
+        </methods>
+      </class>
+    </classes>
+  </test>
+
+  <test name="改密-登录" preserve-order="true"  enabled="false">
+    <classes>
+      <!--自定义内容3：要执行的类-->
+      <class name="com.guoyasoft.gyautotest.api.service.user.UserApi">
+        <methods>
+          <!--自定义内容4：要执行/排除的方法，以及执行顺序（从上到下）-->
+          <include name="changePwd"/>
+          <include name="login"/>
+        </methods>
+      </class>
+    </classes>
+  </test>
+</suite>

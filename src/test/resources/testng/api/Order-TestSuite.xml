@@ -5,7 +5,7 @@
   <test name="一体化测试流程搭建" preserve-order="true">
     <classes>
       <!--自定义内容3：要执行的类-->
-      <class name="com.guoyasoft.gyautotest.api.testCase.user.UserContrllerTest">
+      <class name="com.guoyasoft.gyautotest.api.service.user.UserContrllerTest">
         <methods>
           <!--自定义内容4：要执行/排除的方法，以及执行顺序（从上到下）-->
           <include name="loginTest"/>

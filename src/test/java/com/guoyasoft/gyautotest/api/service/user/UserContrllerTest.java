@@ -1,4 +1,4 @@
-package com.guoyasoft.gyautotest.api.testCase.user;
+package com.guoyasoft.gyautotest.api.service.user;
 
 import io.qameta.allure.Step;
 import org.testng.annotations.Test;

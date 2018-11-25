@@ -23,10 +23,16 @@ public class OrderTest {
   @Test
   public void testMethod(){
     try {
-      Map map = JdbcTools.getRecord("SELECT t.`customer_id`,t.`customer_name`,t.`cert` FROM t_user_customer t WHERE t.`customer_name`='吴令'");
-      System.out.println("客户ID="+(int)map.get("customer_id"));
-      System.out.println("客户姓名="+(String)map.get("customer_name"));
+      JdbcTools jdbcTools=new JdbcTools();
+      Map record=jdbcTools.getRecord("select * from Course where c_id='01'");
+      System.out.println(record.get("c_name"));
 
+      String driver="com.mysql.jdbc.Driver";
+      String url="jdbc:mysql://qa.guoyasoft.com:3306/db_practice?useUnicode=true&characterEncoding=utf8";
+      String userName="";
+      String password="";
+      String sql="";
+      JdbcTools jdbcTools1=new JdbcTools();
     } catch (Exception e) {
       e.printStackTrace();
     }

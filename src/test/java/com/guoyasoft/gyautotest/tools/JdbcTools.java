@@ -12,30 +12,38 @@ import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Properties;
 
 public class JdbcTools {
+  private  Connection conn;
+  private  PreparedStatement ps;
+  private  ResultSet rs;
+  private  Statement st;
+  private String driver;
+  private String url;
+  private String username;
+  private String password;
 
-  // oracle数据库驱动
-	/*
-	private String driver = "oracle.jdbc.driver.OracleDriver";
-	private String url = "jdbc:oracle:thin:@47.98.226.232:3308/guoya_test";
-	*/
-  // mysql数据库驱动
-  // 第1步：选择驱动，有mysql的，有orace，类似不同版本的浏览器
-  private static String driver = "com.mysql.jdbc.Driver";
-  // 第2步：提供链接地址，哪台主机，哪个应用port，哪个实例（类似tomcat的应用名）
-  private static String url = "jdbc:mysql://pro.guoyasoft.com:3306/guoya_official_dev?useUnicode=true&characterEncoding=utf8";
-  // 第3步：登录，用户名、密码
-  private static String username = "root";
-  // 第4步：建立链接，固定写法
-  private static String password = "pro_root";
+  public JdbcTools(){
+    Properties prop=PropertiesTools.getProperties("src\\test\\resources\\db\\mysql.properties");
+    // 第1步：选择驱动，有mysql的，有orace，类似不同版本的浏览器
+    this.driver = prop.getProperty("db.mysql.driver");
+    // 第2步：提供链接地址，哪台主机，哪个应用port，哪个实例（类似tomcat的应用名）
+    this.url =prop.getProperty("db.mysql.url");
+    // 第3步：登录，用户名、密码
+    this.username = prop.getProperty("db.mysql.username");
+    // 第4步：建立链接，固定写法
+    this.password = prop.getProperty("db.mysql.password");
+  }
 
-  public static Connection conn;
-  public static PreparedStatement ps;
-  public static ResultSet rs;
-  public static Statement st;
+  public JdbcTools(String driver,String url,String username,String password){
+    this.driver=driver;
+    this.url=url;
+    this.username=username;
+    this.password=password;
+  }
 
-  public static Connection getConnection() {
+  public Connection getConnection() {
     try {
       Class.forName(driver); // classLoader,加载对应驱动
       conn = (Connection) DriverManager.getConnection(url, username,
@@ -48,12 +56,11 @@ public class JdbcTools {
     return conn;
   }
 
-
-  public static int update(String sql) {
+  public int update(String sql) {
     System.out.println(sql);
     int result = 0;
     // 第1步：建立数据库链接
-    Connection conn = JdbcTools.getConnection();
+    Connection conn = getConnection();
     // 第2步：写SQL魔板
     // 第3步：按照真实数据生成执行SQL
     Statement st;
@@ -71,9 +78,7 @@ public class JdbcTools {
     return result;
   }
 
-
-
-  public static Map getRecord(String sql) throws Exception {
+  public Map getRecord(String sql) throws Exception {
     System.out.println(sql);
     List<Map> list=getRecords(sql);
     if(list.size()==1){
@@ -88,7 +93,7 @@ public class JdbcTools {
   }
 
   // 测试能否与oracle数据库连接成功
-  public static List<Map> getRecords(String sql) {
+  public  List<Map> getRecords(String sql) {
     getConnection();
     if (conn == null) {
       System.out.println("与数据库连接失败！");
@@ -133,7 +138,7 @@ public class JdbcTools {
    * @param rs 是一个ResultSet查询结果集,
    * @param fieldValue Map对象,用于存贮一条记录.
    */
-  private static void _recordMappingToMap(String fieldClassName, String fieldName, ResultSet rs, Map
+  private void _recordMappingToMap(String fieldClassName, String fieldName, ResultSet rs, Map
       fieldValue)
       throws SQLException {
     fieldName = fieldName.toLowerCase();
