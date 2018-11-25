@@ -11,8 +11,8 @@ public class LoginTest {
   @Test
   public void login(){
     LoginReq loginReq=new LoginReq();
-    loginReq.setPwd("123456");
-    loginReq.setUserName("wuling");
+    loginReq.setPwd("a123456");
+    loginReq.setUserName("xw123456");
     String reqJson= JSON.toJSONString(loginReq);
     Allure.addAttachment("请求报文", reqJson);
 

@@ -20,15 +20,15 @@ public class UserApi <T extends Object >{
     return resp;
   }
 
-  public T login2(T request){
+  public T login2(Object request,Class<T> response){
     String reqJson= JSON.toJSONString(request,true);
     System.out.println("-----请求报文：-----------");
     System.out.println(reqJson);
-    String respJson=HttpTools.doPostByJson("", reqJson, "UTF-8", "application/json");
+    String respJson=HttpTools.doPostByJson("http://qa.guoyasoft.com:8080/user/login", reqJson, "UTF-8", "application/json");
     System.out.println("-------------响应报文------------");
     System.out.println(respJson);
-    //T resp=JSON.parseObject(respJson,request.getClass());
-    return null;
+    T resp=(T)JSON.parseObject(respJson,response);
+    return resp;
   }
 
   public void signUp(){

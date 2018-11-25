@@ -1,5 +1,6 @@
 package com.guoyasoft.gyautotest.tools;
 
+import com.alibaba.fastjson.JSON;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -32,7 +33,21 @@ import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.ssl.SSLContexts;
 import org.apache.http.util.EntityUtils;
 
-public class HttpTools {
+public class HttpTools <T> {
+
+  public  Object sendHttpJsonAPI(String path,Object request,Class response){
+    System.out.println("-------请求路径————————");
+    System.out.println(path);
+    String reqJson= JSON.toJSONString(request,true);
+    System.out.println("-----请求报文：-----------");
+    System.out.println(reqJson);
+    String respJson=HttpTools.doPostByJson(path, reqJson, "UTF-8", "application/json");
+    System.out.println("-------------响应报文------------");
+    System.out.println(respJson);
+    Object resp=JSON.parseObject(respJson,response);
+    return resp;
+  }
+
   //private static Logger logger = LoggerFactory.getLogger(HttpTools.class);
 
   /**

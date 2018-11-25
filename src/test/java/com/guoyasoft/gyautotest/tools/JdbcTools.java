@@ -78,16 +78,21 @@ public class JdbcTools {
     return result;
   }
 
-  public Map getRecord(String sql) throws Exception {
-    System.out.println(sql);
-    List<Map> list=getRecords(sql);
-    if(list.size()==1){
-      return list.get(0);
-    }else if(list.size()==0){
-      System.out.println("-----------查询结果为空-------------");
-      return null;
-    }else{
-      System.out.println("-----------查询结果为"+list.size()+"记录，请核实数据---------");
+  public Map getRecord(String sql) {
+    try{
+      System.out.println(sql);
+      List<Map> list=getRecords(sql);
+      if(list.size()==1){
+        return list.get(0);
+      }else if(list.size()==0){
+        System.out.println("-----------查询结果为空-------------");
+        return null;
+      }else{
+        System.out.println("-----------查询结果为"+list.size()+"记录，请核实数据---------");
+        return null;
+      }
+    }catch (Exception e){
+      e.printStackTrace();
       return null;
     }
   }
